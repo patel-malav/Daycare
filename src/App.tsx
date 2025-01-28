@@ -6,15 +6,19 @@ import { useReactToPrint } from "react-to-print";
 import { PrinterIcon } from "lucide-react";
 
 const forms = {
-  "form-1": <MonthlyInspectionReport />,
-  "form-2": <ChartReviewNursing />,
-  "form-3": <ChartReviewPrescription />,
+  "form-1": (
+    <>
+      <MonthlyInspectionReport />
+      <ChartReviewNursing />
+    </>
+  ),
+  "form-2": <ChartReviewPrescription />,
 };
 
 function App() {
-  const [selectedForm, setSelectedForm] = useState<
-    "form-1" | "form-2" | "form-3"
-  >("form-1");
+  const [selectedForm, setSelectedForm] = useState<"form-1" | "form-2">(
+    "form-1"
+  );
 
   const contentRef = useRef<HTMLDivElement>(null);
   const handlePrint = useReactToPrint({
@@ -24,7 +28,7 @@ function App() {
 
   return (
     <>
-      <div className="py-2 flex flex-col w-full bg-amber-100 no-print">
+      <div className="py-2 flex flex-col w-full bg-amber-100 print:hidden">
         <div className="pr-2 flex justify-between">
           <h1 className="p-2 text-2xl font-bold">Ayaan Patel LLC</h1>
           <button
@@ -44,12 +48,6 @@ function App() {
         <p
           className="p-2 text-sm underline cursor-pointer select-none hover:bg-gray-100 hover:bg-blend-darken"
           onClick={() => setSelectedForm("form-2")}
-        >
-          Chart Review: Nursing
-        </p>
-        <p
-          className="p-2 text-sm underline cursor-pointer select-none hover:bg-gray-100 hover:bg-blend-darken"
-          onClick={() => setSelectedForm("form-3")}
         >
           Chart Review: Therapeutic Prescriber Recommendation
         </p>

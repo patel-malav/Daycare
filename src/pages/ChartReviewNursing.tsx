@@ -48,11 +48,19 @@ export default function ChartReviewNursing() {
   };
   return (
     <>
-      <div className="h-16 no-print"></div>
+      <div className="h-16 print:hidden"></div>
       <LetterPage header={<PageHeader data={pageHeaderData} />}>
         <ClientInfo data={clientInfoData} />
+        <p className="mt-4 self-center font-bold text-lg underline">
+          <span>Additional Comments</span>
+        </p>
+        <TextareaAutoResize
+          className="mt-2 p-1 text-sm border bg-gray-200"
+          placeholder="additional comments section"
+          minRows={4}
+        />
         <ContentEditable
-          className="pt-4 self-center font-bold text-xl underline"
+          className="mt-4 self-center font-bold text-xl underline"
           label="report-title"
           defaultValue={data.reportTitle}
           onChange={handleChange}
@@ -83,7 +91,7 @@ export default function ChartReviewNursing() {
           minRows={10}
         />
         <ContentEditable
-          className="mt-8 pt-4 self-center font-bold text-xl underline"
+          className="mt-8 self-center font-bold text-xl underline"
           label="report-monthly-trend"
           defaultValue={data.reportMonthlyTrend}
           onChange={handleChange}

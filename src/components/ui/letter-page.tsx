@@ -9,7 +9,7 @@ export default function LetterPage({
   header,
 }: PropsWithChildren<Props>) {
   return (
-    <div className="w-[8.5in] min-h-[11in] py-6 px-12 flex flex-col shadow-md bg-white">
+    <div className="w-[8.5in] h-[11in] max-h-[11in] py-6 px-12 flex flex-col not-print:shadow-md bg-white break-after-page">
       {header}
       <div className="h-1"></div>
       {children}

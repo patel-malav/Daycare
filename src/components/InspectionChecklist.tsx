@@ -1,5 +1,6 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import type { ActionItem, InspectionChecklist } from "../data/checklist";
+import ContentEditable from "./ui/content-editable";
 
 type Props = {
   mode: "edit" | "print";
@@ -95,7 +96,13 @@ function EditActionItem({
 
   return (
     <tr className="text-xs border">
-      <td className="px-2 py-1 border-r">{actionItem.task}</td>
+      <td className="px-2 py-1 border-r">
+        <ContentEditable
+          label={actionItem.id}
+          defaultValue={actionItem.task}
+          onChange={(_value, _label) => {}}
+        />
+      </td>
       <td className="px-2 py-1 text-center border-r align-middle">
         <input
           type="checkbox"
@@ -126,26 +133,3 @@ function EditActionItem({
     </tr>
   );
 }
-
-// function PrintView({
-//   item,
-//   value,
-//   comment,
-// }: {
-//   item: string;
-//   value: "yes" | "no";
-//   comment: string;
-// }) {
-//   return (
-//     <tr className="text-xs border">
-//       <td className="px-2 border-r">{item}</td>
-//       <td className="px-2 text-center border-r">
-//         {value === "yes" ? "Yes" : ""}
-//       </td>
-//       <td className="px-2 text-center border-r">
-//         {value === "no" ? "No" : ""}
-//       </td>
-//       <td className="px-2">{comment}</td>
-//     </tr>
-//   );
-// }

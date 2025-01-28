@@ -4,7 +4,6 @@ import { getAllChecklists } from "../data/checklist";
 import ClientInfo from "../components/ui/client-info";
 import ContentEditable from "../components/ui/content-editable";
 import InspectionChecklist from "../components/InspectionChecklist";
-import TextareaAutoResize from "react-textarea-autosize";
 import CompliancePercentage from "../components/CompliancePercentage";
 import { useState } from "react";
 
@@ -75,7 +74,7 @@ export default function MonthlyInspectionReport() {
 
   return (
     <>
-      <div className="h-16 no-print"></div>
+      <div className="h-16 print:hidden"></div>
       <LetterPage header={<PageHeader data={pageHeaderData} />}>
         <ClientInfo data={clientInfoData} />
         <p className="pt-4 self-center font-bold text-xl underline">
@@ -124,7 +123,7 @@ export default function MonthlyInspectionReport() {
           onApprovalCountChange={handleApprovalCountChange}
         />
       </LetterPage>
-      <div className="h-16 no-print"></div>
+      <div className="h-16 print:hidden"></div>
       <LetterPage header={<PageHeader data={pageHeaderData} />}>
         <InspectionChecklist
           key={checklists[1].id}
@@ -138,15 +137,6 @@ export default function MonthlyInspectionReport() {
           mode="edit"
           onApprovalCountChange={handleApprovalCountChange}
         />
-        <p className="mt-2 self-center font-bold text-lg underline">
-          <span>Additional Comments</span>
-        </p>
-        <TextareaAutoResize
-          className="mt-2 p-1 text-sm border bg-gray-200"
-          placeholder="additional comments section"
-          minRows={4}
-        />
-        <div className="h-8"></div>
       </LetterPage>
     </>
   );

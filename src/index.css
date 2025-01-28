@@ -36,12 +36,6 @@ body {
   appearance: checkbox;
 }
 
-@media print {
-  .no-print {
-    display: none;
-  }
-}
-
 @media (prefers-color-scheme: light) {
   :root {
     background-color: rgb(220, 220, 220);

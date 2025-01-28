@@ -48,7 +48,7 @@ export default function ChartReviewPrescription() {
 
   return (
     <>
-      <div className="h-16 no-print"></div>
+      <div className="h-16 print:hidden"></div>
       <LetterPage header={<PageHeader data={pageHeaderData} />}>
         <ClientInfo data={clientInfoData} />
         <ContentEditable
